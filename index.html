@@ -301,7 +301,6 @@
                 display: block;
                 color: white;
                 position: absolute;
-                top: 20px;
                 right: 20px;
                 font-size: 1.8rem;
                 cursor: pointer;
@@ -675,6 +674,33 @@
     </footer>
 
     <script>
+
+        const contactForm = document.querySelector('#contact form');
+
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                } else {
+                    alert('Oops! Problem sending message.');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Error sending message. Try again later.');
+            }
+        });
+
         // Reveal animation observer
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
