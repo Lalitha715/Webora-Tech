@@ -7,74 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webora Tech | Portfolio</title>
     <style>
-        @media (max-width: 600px) {
-            .nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: space-between;
-                font-size: 0.85rem;
-                gap: 10px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero {
-                padding: 40px 0;
-            }
-
-            .hero-card {
-                padding: 20px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                padding: 18px;
-            }
-
-            .card h3 {
-                font-size: 1rem;
-            }
-
-            .card p {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            input,
-            textarea {
-                font-size: 14px;
-            }
-
-            .contact {
-                gap: 15px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
         :root {
             --bg: #0b1020;
             --card: rgba(255, 255, 255, 0.08);
@@ -83,445 +15,60 @@
             --accent: #60a5fa;
             --accent-2: #22d3ee;
             --line: rgba(255, 255, 255, 0.12);
-            --white: #ffffff;
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
         * {
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #0b1020, #131c3a 45%, #0f172a);
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0b1020, #131c3a, #0f172a);
             color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
         }
 
         .container {
-            width: min(1120px, calc(100% - 32px));
-            margin: 0 auto;
+            width: min(1100px, 92%);
+            margin: auto;
         }
 
+        /* NAVBAR */
         header {
             position: sticky;
             top: 0;
-            z-index: 50;
-            backdrop-filter: blur(12px);
-            background: rgba(11, 16, 32, 0.75);
+            background: rgba(11, 16, 32, 0.8);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--line);
         }
 
         .nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
-            gap: 16px;
-        }
-
-        .brand {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-        }
-
-        .brand span {
-            color: var(--accent-2);
+            justify-content: space-between;
+            padding: 20px 0;
         }
 
         .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            font-size: 0.95rem;
-            color: var(--muted);
-        }
-
-        .hero {
-            padding: 90px 0 70px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 28px;
+            gap: 35px;
             align-items: center;
         }
 
-        .hero-card,
-        .panel {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        .hero-card {
-            padding: 42px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(96, 165, 250, 0.15);
-            color: #bfdbfe;
-            font-size: 0.88rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(96, 165, 250, 0.25);
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin: 0 0 14px;
-            line-height: 1.15;
-        }
-
-        h1 {
-            font-size: clamp(2.2rem, 4vw, 4rem);
-        }
-
-        .hero p {
-            margin: 0 0 24px;
-            color: var(--muted);
-            font-size: 1.06rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn {
-            padding: 14px 20px;
-            border-radius: 14px;
+        .brand {
             font-weight: 700;
-            display: inline-block;
-            transition: 0.25s ease;
-            border: 1px solid transparent;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: #07111f;
+        .brand span {
+            color: #38bdf8;
         }
 
-        .btn-secondary {
-            border-color: var(--line);
-            color: var(--white);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero-side {
-            padding: 28px;
-            display: grid;
-            gap: 16px;
-        }
-
-        .mini-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 18px;
-        }
-
-        .mini-card strong {
-            display: block;
-            font-size: 1rem;
-            margin-bottom: 6px;
-        }
-
-        section {
-            padding: 28px 0;
-        }
-
-        .section-title {
-            margin-bottom: 20px;
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-        }
-
-        .section-sub {
-            color: var(--muted);
-            max-width: 800px;
-            margin-bottom: 24px;
-        }
-
-        .grid {
-            display: grid;
-            gap: 22px;
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 22px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-        }
-
-        .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .card p,
-        .card li {
-            color: var(--muted);
-        }
-
-        .card ul {
-            margin: 0;
-            padding-left: 18px;
-        }
-
-        .package {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .package::after {
-            content: "";
-            position: absolute;
-            inset: auto -40px -40px auto;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, rgba(96, 165, 250, 0.22), transparent 65%);
-        }
-
-        .highlight {
-            border: 1px solid rgba(34, 211, 238, 0.35);
-        }
-
-        .project-meta {
-            display: grid;
-            gap: 8px;
-            margin-top: 12px;
-            font-size: 0.96rem;
-        }
-
-        .steps {
-            counter-reset: step;
-        }
-
-        .step {
-            position: relative;
-            padding-left: 58px;
-        }
-
-        .step::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: #07111f;
-        }
-
-        .pricing-box {
-            text-align: center;
-            padding: 36px;
-        }
-
-        .contact {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            align-items: stretch;
-        }
-
-        .contact-info p {
-            margin: 8px 0;
-        }
-
-        .placeholder {
-            color: #fde68a;
-            font-weight: 700;
-        }
-
-        footer {
-            padding: 34px 0 48px;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        .closing {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 12px;
-        }
-
-        @media (max-width: 920px) {
-
-            .hero,
-            .contact,
-            .grid-3,
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: 56px;
-            }
-
-            .hero-card,
-            .hero-side,
-            .pricing-box,
-            .card {
-                padding: 24px;
-            }
-        }
-
-        /* ===== Animations ===== */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(28px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes floatSoft {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        @keyframes pulseGlow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 rgba(34, 211, 238, 0),
-                    0 20px 40px rgba(0, 0, 0, 0.25);
-            }
-
-            50% {
-                box-shadow: 0 0 24px rgba(34, 211, 238, 0.18),
-                    0 20px 40px rgba(0, 0, 0, 0.25);
-            }
-        }
-
-        /* Initial reveal state */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero entry */
-        .hero-card {
-            animation: fadeUp 1s ease both;
-        }
-
-        .hero-side {
-            animation: fadeUp 1.2s ease both;
-        }
-
-        /* Mini cards floating */
-        .mini-card {
-            animation: floatSoft 4s ease-in-out infinite;
-        }
-
-        .mini-card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .mini-card:nth-child(3) {
-            animation-delay: 0.8s;
-        }
-
-        /* Button hover smoother */
-        .btn {
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
-        }
-
-        /* Card hover */
-        .card,
-        .hero-card,
-        .panel {
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-        }
-
-        .card:hover,
-        .hero-card:hover,
-        .panel:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 26px 48px rgba(0, 0, 0, 0.28);
-            border-color: rgba(96, 165, 250, 0.32);
-        }
-
-        /* Highlight card glow */
-        .highlight {
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
-
-        /* Section title soft fade */
-        .section-title {
-            animation: fadeIn 1s ease both;
-        }
-
-        /* Navbar link underline animation */
         .nav-links a {
             position: relative;
+            text-decoration: none;
+            color: #9ca3af;
             transition: color 0.3s ease;
         }
 
@@ -532,7 +79,7 @@
             bottom: -5px;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            background: linear-gradient(135deg, #60a5fa, #22d3ee);
             transition: width 0.3s ease;
         }
 
@@ -541,12 +88,163 @@
         }
 
         .nav-links a:hover {
-            color: var(--white);
+            color: #ffffff;
         }
 
-        /* Smooth footer appearance */
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            padding: 80px 0;
+        }
+
+        .hero-card,
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--line);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #3b82f6, #99dae6);
+            color:black;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* STEP FIX */
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* FOOTER */
         footer {
-            animation: fadeUp 1.2s ease both;
+            text-align: center;
+            padding: 30px 0;
+            color: var(--muted);
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 900px) {
+
+            .hero,
+            .grid-3,
+            .grid-2,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== MOBILE FIX ===== */
+        @media (max-width: 600px) {
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                font-size: 0.8rem;
+            }
+
+            .hero {
+                padding: 50px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* 🔥 STEP FIX FINAL */
+            .step {
+                padding-left: 0;
+                padding-top: 50px;
+            }
+
+            .step::before {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 10px;
+            }
         }
     </style>
 </head>
@@ -576,7 +274,6 @@
                 </p>
                 <div class="hero-buttons">
                     <a class="btn btn-primary" href="#contact">Start Your Project</a>
-
                 </div>
             </div>
 
