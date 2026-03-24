@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webora Tech | Portfolio</title>
+    <style>
+        :root {
+            --bg: #0b1020;
+            --card: rgba(255, 255, 255, 0.08);
+            --text: #eef2ff;
+            --muted: #c7d2fe;
+            --accent: #60a5fa;
+            --accent-2: #22d3ee;
+            --line: rgba(255, 255, 255, 0.12);
+            --white: #ffffff;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #0b1020, #131c3a 45%, #0f172a);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(11, 16, 32, 0.75);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            gap: 16px;
+        }
+
+        .brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .brand span {
+            color: var(--accent-2);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .hero {
+            padding: 90px 0 70px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .hero-card,
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card {
+            padding: 42px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(96, 165, 250, 0.15);
+            color: #bfdbfe;
+            font-size: 0.88rem;
+            margin-bottom: 18px;
+            border: 1px solid rgba(96, 165, 250, 0.25);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0 0 14px;
+            line-height: 1.15;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 4rem);
+        }
+
+        .hero p {
+            margin: 0 0 24px;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border-radius: 14px;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #07111f;
+        }
+
+        .btn-secondary {
+            border-color: var(--line);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-side {
+            padding: 28px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .mini-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .mini-card strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        section {
+            padding: 28px 0;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+        }
+
+        .section-sub {
+            color: var(--muted);
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+        }
+
+        .card ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .package {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package::after {
+            content: "";
+            position: absolute;
+            inset: auto -40px -40px auto;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.22), transparent 65%);
+        }
+
+        .highlight {
+            border: 1px solid rgba(34, 211, 238, 0.35);
+        }
+
+        .project-meta {
+            display: grid;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 0.96rem;
+        }
+
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 58px;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #07111f;
+        }
+
+        .pricing-box {
+            text-align: center;
+            padding: 36px;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+        }
+
+        .placeholder {
+            color: #fde68a;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 34px 0 48px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .closing {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 920px) {
+
+            .hero,
+            .contact,
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 56px;
+            }
+
+            .hero-card,
+            .hero-side,
+            .pricing-box,
+            .card {
+                padding: 24px;
+            }
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatSoft {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 rgba(34, 211, 238, 0),
+                    0 20px 40px rgba(0, 0, 0, 0.25);
+            }
+
+            50% {
+                box-shadow: 0 0 24px rgba(34, 211, 238, 0.18),
+                    0 20px 40px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        /* Initial reveal state */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero entry */
+        .hero-card {
+            animation: fadeUp 1s ease both;
+        }
+
+        .hero-side {
+            animation: fadeUp 1.2s ease both;
+        }
+
+        /* Mini cards floating */
+        .mini-card {
+            animation: floatSoft 4s ease-in-out infinite;
+        }
+
+        .mini-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .mini-card:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        /* Button hover smoother */
+        .btn {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+        }
+
+        /* Card hover */
+        .card,
+        .hero-card,
+        .panel {
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .card:hover,
+        .hero-card:hover,
+        .panel:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 48px rgba(0, 0, 0, 0.28);
+            border-color: rgba(96, 165, 250, 0.32);
+        }
+
+        /* Highlight card glow */
+        .highlight {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        /* Section title soft fade */
+        .section-title {
+            animation: fadeIn 1s ease both;
+        }
+
+        /* Navbar link underline animation */
+        .nav-links a {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        /* Smooth footer appearance */
+        footer {
+            animation: fadeUp 1.2s ease both;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">Webora <span>Tech</span></div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#offers">Offers</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container hero" id="home">
+            <div class="hero-card">
+                <div class="eyebrow">Web & App Development | Small Business Digital Setup</div>
+                <h1>We Build Digitally What You Imagine</h1>
+                <p>
+                    Webora Tech creates modern websites, mobile apps, branding designs, and business setup solutions
+                    that help small businesses grow their digital presence with clarity and confidence.
+                </p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#contact">Start Your Project</a>
+
+                </div>
+            </div>
+
+            <div class="panel hero-side">
+                <div class="mini-card">
+                    <strong>Modern Design</strong>
+                    Clean, professional, and mobile-friendly digital solutions.
+                </div>
+                <div class="mini-card">
+                    <strong>Affordable Plans</strong>
+                    Starter options available for small businesses and new brands.
+                </div>
+                <div class="mini-card">
+                    <strong>Custom Support</strong>
+                    We shape each project based on your goals and business needs.
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal" id="about">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-sub">
+                Webora Tech is a freelance digital service team focused on website development, mobile app development,
+                logo design, and small business digital setup. We help businesses build a strong online presence with
+                simple, modern, and affordable solutions.
+            </p>
+        </section>
+
+        <section class="container reveal" id="services">
+            <h2 class="section-title">Services</h2>
+            <div class="grid grid-3">
+                <div class="card reveal">
+                    <h3>Website Development</h3>
+                    <p>Responsive and professional websites for startups, shops, and service businesses.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Mobile App Development</h3>
+                    <p>Android-focused app solutions tailored to your workflow and customer needs.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>UI/UX Design</h3>
+                    <p>Simple, modern, and user-friendly screen designs for web and mobile platforms.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Logo Design</h3>
+                    <p>Clean brand identity concepts that match your business style and audience.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Business Digital Setup</h3>
+                    <p>Support for basic online setup including social media presence and guidance tools.</p>
+                </div>
+                <div class="card reveal">
+                    <h3>Website Maintenance</h3>
+                    <p>Ongoing updates, small fixes, content edits, and technical support.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal" id="offers">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="grid grid-3">
+                <div class="card package">
+                    <h3>Starter Package</h3>
+                    <ul>
+                        <li>Basic website</li>
+                        <li>Contact form</li>
+                        <li>Mobile friendly design</li>
+                    </ul>
+                </div>
+                <div class="card package highlight">
+                    <h3>Business Package</h3>
+                    <ul>
+                        <li>Website</li>
+                        <li>Logo</li>
+                        <li>Social media setup</li>
+                        <li>Google business profile guidance</li>
+                    </ul>
+                </div>
+                <div class="card package">
+                    <h3>Advanced Package</h3>
+                    <ul>
+                        <li>Website</li>
+                        <li>App</li>
+                        <li>Admin panel</li>
+                        <li>Maintenance support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal" id="why-us">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>Affordable Pricing</h3>
+                    <p>Cost-effective plans suited for startups and small businesses.</p>
+                </div>
+                <div class="card">
+                    <h3>Modern Design</h3>
+                    <p>Fresh visual style with a clean structure and strong usability.</p>
+                </div>
+                <div class="card">
+                    <h3>Client-Friendly Approach</h3>
+                    <p>Clear communication and easy collaboration at every stage.</p>
+                </div>
+                <div class="card">
+                    <h3>Fast Delivery</h3>
+                    <p>Projects are planned for smooth execution and timely completion.</p>
+                </div>
+                <div class="card">
+                    <h3>Custom Solutions</h3>
+                    <p>Every business is different, so the final solution is adapted to fit you.</p>
+                </div>
+                <div class="card">
+                    <h3>Support Mindset</h3>
+                    <p>We stay practical and helpful from first discussion to final delivery.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="container reveal" id="process">
+            <h2 class="section-title">Process</h2>
+            <div class="grid grid-2 steps">
+                <div class="card step">
+                    <h3>Requirement Discussion</h3>
+                    <p>Understand your business, audience, and the exact digital solution you need.</p>
+                </div>
+                <div class="card step">
+                    <h3>Planning &amp; Design</h3>
+                    <p>Create the structure, layout, and design direction for the project.</p>
+                </div>
+                <div class="card step">
+                    <h3>Development</h3>
+                    <p>Build the website, app, branding assets, or setup workflow step by step.</p>
+                </div>
+                <div class="card step">
+                    <h3>Testing</h3>
+                    <p>Check usability, responsiveness, and core functionality before launch.</p>
+                </div>
+                <div class="card step">
+                    <h3>Delivery &amp; Support</h3>
+                    <p>Deliver the final output and assist with updates, edits, or future changes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container reveal" id="pricing">
+            <h2 class="section-title">Pricing</h2>
+            <div class="card pricing-box">
+                <p>
+                    Pricing depends on project features and requirements. Affordable starter plans are available for
+                    small businesses.
+                </p>
+            </div>
+        </section>
+
+        <section class="container reveal" id="contact">
+            <h2 class="section-title">Contact Page</h2>
+            <div class="contact">
+                <div class="card contact-info">
+                    <h3>Webora Tech</h3>
+                    <p><strong>Phone:</strong> <span class="placeholder">8525825445, 8667521354</span></p>
+                    <p><strong>WhatsApp:</strong> <span class="placeholder">8525825445, 8667521354</span></p>
+                    <p><strong>Email:</strong> <span class="placeholder">weboratech5@gmail.com</span></p>
+                    <p><strong>Instagram:</strong> @weboratech</p>
+                </div>
+                <div class="card">
+                    <h3>Ready to Start?</h3>
+                    <p>Let your clients know how to reach you for websites, apps, branding, and business digital setup
+                        support.</p>
+                    <form action="https://formspree.io/f/mlgpqowr" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required
+                            style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:none;">
+
+                        <input type="email" name="email" placeholder="Your Email" required
+                            style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:none;">
+
+                        <textarea name="message" placeholder="Your Message" required
+                            style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:none;"></textarea>
+
+                        <button class="btn btn-primary" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="closing">Let’s build your digital presence together</div>
+        <div>© 2026 Webora Tech. All rights reserved.</div>
+    </footer>
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        reveals.forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>
