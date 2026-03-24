@@ -300,11 +300,18 @@
             .menu-toggle {
                 display: block;
                 color: white;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.8rem;
+                cursor: pointer;
+                z-index: 1000;
             }
 
             .nav {
                 flex-direction: column;
                 align-items: flex-start;
+                position: relative;
             }
 
             .nav-links {
@@ -312,7 +319,7 @@
                 flex-direction: column;
                 width: 100%;
                 gap: 15px;
-                margin-top: 10px;
+                margin-top: 60px;
                 background: rgba(11, 16, 32, 0.95);
                 padding: 15px;
                 border-radius: 10px;
@@ -372,6 +379,23 @@
 
         .mini-card.bounce {
             animation: bounce-light 2.5s ease-in-out infinite;
+        }
+
+        /* Mobile specific: Process section cards center content */
+        @media (max-width: 900px) {
+            #process .grid.steps {
+                justify-content: center;
+                /* grid items center horizontally */
+                text-align: center;
+                /* text inside cards center */
+            }
+
+            #process .grid.steps .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* content inside each card center */
+            }
         }
 
         /* 🔥 REVEAL ANIMATION */
